@@ -1,6 +1,6 @@
 # transcripts
 
-This contains a Python script to summarize student performance in specific
+This contains a Python script to summarize student grades in specific
 subjects. It was created to aid in selecting candidates for the
 KME Math Honor Society at LIU Post, but the script could 
 be repurposed pretty easily. 
