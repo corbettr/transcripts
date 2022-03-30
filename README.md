@@ -33,7 +33,7 @@ If desired, one can further work with the information using the returned Pandas 
 If using a terminal window, run either of the commands:
 ```
 python transcript_runner.py "Transcripts-S21.pdf"
-python transcript_runner.py "Transcripts-S21.pdf" "Awards-S21.pdf"
+python transcript_runner.py "Transcripts-S21.pdf" "Awards-S21.xlsx"
 ```
 
 In both cases, the spreadsheet will be saved in the subdirectory `"data/"` (or `OUT_DIR` if modified). The carrot ^ in column titles is to denote "upper-level," eg `MTH^ GPA` is the GPA for completed upper-level math courses.
