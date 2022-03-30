@@ -73,12 +73,11 @@ def analyze_transcripts(file, output_file="TranscriptSummary.xlsx"):
     -------
     df : Pandas DataFrame
         DESCRIPTION. df used to create spreadsheet
-    """
-    creds = dict()    
+    """   
     raw_text = scrape_pdf(IN_DIR+file)
     one_space_text = remove_extra_spaces(raw_text)
     transcripts =  separate_students(one_space_text)
-    df = transcript_data(transcripts, creds)
+    df = transcript_data(transcripts)
     if output_file:
         df.to_excel(OUT_DIR+output_file, na_rep="")
     return df
