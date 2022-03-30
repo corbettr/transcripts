@@ -28,7 +28,7 @@ file = "Transcripts-S21.pdf"
 df = analyze_transcripts(file)  # default output file, or 
 df = analyze_transcripts(file, "Awards-S21.xlsx")  # specified output
 ```
-If desired, one can further work with the information as the returned Pandas DataFrame `df`. 
+If desired, one can further work with the information using the returned Pandas DataFrame `df`. 
 
 If using a terminal window, run either of the commands:
 ```
