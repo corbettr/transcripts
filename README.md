@@ -18,8 +18,8 @@ unofficial transcripts, so the scraping likely needs to be modified in order to 
 Create a single .pdf file of unofficial transcripts (from LIU Post), and place the `file` in the subdirectory `"data/"` (or `IN_DIR` if modified).
 
 In transcripts.py update:
-- `CURR_SEM` : the current semester, eg "S21" for Spring 2021
-- `SUBJECTS` : list of subject codes for courses to find
+- `CURR_SEM` : the current semester, e.g. "S21" for Spring 2021
+- `SUBJECTS` : list of subject codes for courses to find, e.g. `["MTH", "PHY"]`
 - `IGNORE_COURSES` : courses to omit when calculating information about "upper-level courses"
 
 If using an interactive IDE (eg Spyder, Jupyter), run the entire file transcripts.py and then run the commands:
