@@ -6,8 +6,8 @@ Python script to summarize student performance in specific
 subjects. Created to aid in selection of candidates for 
 KME Math Honor Society at LIU Post, but the program could 
 be repurposed pretty easily. It is written to handle LIU Post
-transcripts, so the scraping will likely need to be modified 
-to work with transcripts in other formats.
+unofficial transcripts, so the scraping will likely need to be
+modified to work with transcripts in other formats.
 
 Primary function is: analyze_transcripts(file, output_file)
 Input pdf lives in subdirectory 'data/' (or IN_DIR if modified)
