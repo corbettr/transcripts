@@ -10,7 +10,7 @@ unofficial transcripts, so the scraping will likely need to be
 modified to work with transcripts in other formats.
 
 Primary function is: analyze_transcripts(file, output_file)
-Input pdf lives in subdirectory 'data/' (or IN_DIR if modified)
+Input pdf lives in subdirectory 'data' (or IN_DIR if modified)
 
 To operate, run entire file within interactive IDE
 (eg Spyder, Jupyter) and then run commands:
@@ -24,10 +24,11 @@ or
 in terminal window run command:
 >>> python transcript_runner.py "Transcripts-S21.pdf"
 or
->>> python transcript_runner.py "Transcripts-S21.pdf" "Awards-S21.pdf"
+>>> python transcript_runner.py "Transcripts-S21.pdf" "Awards-S21.xlsx"
 """
 
 import re
+import os
 import numpy as np
 import pandas as pd
 import pdfplumber  # pip install pdfplumber
@@ -35,7 +36,7 @@ from natsort import natsorted  # pip install natsort
 
 
 # Global variables are designed to be modified.
-CURR_SEM = "S21"
+CURR_SEM = "S22"  # eg "F20" or "Sum19" or "S21"
 SUBJECTS = ["MTH", "PHY"]
 # IGNORE_COURSES must include key for every subject.
 # To not exclude any courses in summary, use { "MTH" : set() }
@@ -44,12 +45,13 @@ IGNORE_COURSES = {
              "MTH 19", "MTH 90"},
     "PHY" : {"PHY 3", "PHY 4"},
     }
-IN_DIR = "data/"  # subdirectory for inputs
-OUT_DIR = "data/"  # sudirectory for outputs
+
+IN_DIR = "data"  # subdirectory for inputs
+OUT_DIR = "data"  # sudirectory for outputs
 
 # Can be changed, but it would be unlikely
 GPA_VAL = {
-    "A":4.0, "A-": 3.667, "B+":3.333, "B":3.0, "B-":2.667,
+    "A":4.0, "A-":3.667, "B+":3.333, "B":3.0, "B-":2.667,
     "C+":2.333, "C":2.0, "C-":1.667, "D":1.0, "F":0.0
     }
 
@@ -64,22 +66,22 @@ def analyze_transcripts(file, output_file="TranscriptSummary.xlsx"):
     ----------
     file : string (name of input .pdf file)
         DESCRIPTION. (Multiple) transcripts printed as single pdf.
-        located in subdirectory IN_DIR='data/'
+        located in subdirectory IN_DIR='data'
     output_file : string (name of output .xlsx file)
         DESCRIPTION. The default is "TranscriptSummary.xlsx",
-        located in subdirectory OUT_DIR='data/'
+        located in subdirectory OUT_DIR='data'
 
     Returns
     -------
     df : Pandas DataFrame
         DESCRIPTION. df used to create spreadsheet
-    """   
-    raw_text = scrape_pdf(IN_DIR+file)
+    """  
+    raw_text = scrape_pdf(os.path.join(IN_DIR, file))
     one_space_text = remove_extra_spaces(raw_text)
     transcripts =  separate_students(one_space_text)
     df = transcript_data(transcripts)
     if output_file:
-        df.to_excel(OUT_DIR+output_file, na_rep="")
+        df.to_excel(os.path.join(OUT_DIR, output_file), na_rep="")
     return df
 
 
