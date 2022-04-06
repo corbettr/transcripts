@@ -15,7 +15,7 @@ It was written to handle LIU Post
 unofficial transcripts, so the scraping likely needs to be modified in order to work with transcripts from other sources.
 
 ## Usage
-Create a single .pdf file of unofficial transcripts (from LIU Post), and place the `file` in the subdirectory `"data/"` (or `IN_DIR` if modified).
+Create a single .pdf file of unofficial transcripts (from LIU Post), and place the `file` in the subdirectory `"data"` (or `IN_DIR` if modified).
 
 In transcripts.py update:
 - `CURR_SEM` : the current semester, e.g. "S21" for Spring 2021
@@ -36,4 +36,4 @@ python transcript_runner.py "Transcripts-S21.pdf"
 python transcript_runner.py "Transcripts-S21.pdf" "Awards-S21.xlsx"
 ```
 
-In both cases, the spreadsheet will be saved in the subdirectory `"data/"` (or `OUT_DIR` if modified). The carrot ^ in column titles is to denote "upper-level," eg `MTH^ GPA` is the GPA for completed upper-level math courses.
+In both cases, the spreadsheet will be saved in the subdirectory `"data"` (or `OUT_DIR` if modified). The carrot ^ in column titles is to denote "upper-level," eg `MTH^ GPA` is the GPA for completed upper-level math courses.
