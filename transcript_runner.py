@@ -17,7 +17,7 @@ def main():
     if len(sys.argv) > 3:
         print("Warning: Using only first two arguments.")
         
-    if len(sys.argv) == 3:
+    if len(sys.argv) >= 3:
         output_file = sys.argv[2]
         print("Analyzing transcripts...")
         analyze_transcripts(input_file, output_file)
