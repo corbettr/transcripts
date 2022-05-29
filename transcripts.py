@@ -265,5 +265,5 @@ def sem_abbr(semester):
     sem = re.sub("Fall ", "F", sem)
     sem = re.sub("Spring ", "S", sem)
     sem = re.sub("Summer ", "Sum", sem)
-    sem = re.sub("Winter", "Win", sem)
+    sem = re.sub("Winter ", "Win", sem)
     return sem
